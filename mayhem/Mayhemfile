@@ -1,0 +1,6 @@
+project: unidecode
+target: unidecode_fuzz
+
+cmds:
+    - cmd: /unidecode/fuzz/unidecode_fuzz.py
+      libfuzzer: true

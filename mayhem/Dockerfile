@@ -1,5 +1,10 @@
-FROM python:3.8-bullseye
-RUN pip3 install atheris
+FROM python:3.11-slim
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends clang && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN CLANG_BIN=$(which clang) pip3 install atheris
 
 COPY . /unidecode
 WORKDIR /unidecode
